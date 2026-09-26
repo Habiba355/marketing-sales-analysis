@@ -13,3 +13,7 @@ df['email_open_rate'] = df['email_open_rate'].fillna(0)
 df['days_since_last_purchase'] = df['days_since_last_purchase'].fillna(0)
 
 print(df.isnull().sum())
+
+print(df.groupby('region')['sales_revenue_usd'].sum().sort_values(ascending=False))
+
+print(df.groupby('region')['sales_revenue_usd'].agg(['sum', 'mean', 'count']).sort_values('sum', ascending=False))
